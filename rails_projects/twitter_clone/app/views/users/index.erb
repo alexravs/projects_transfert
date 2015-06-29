@@ -1,0 +1,11 @@
+<ul>
+  <% User.all.each do |u| %>
+    <li id="<%= u.id %>"> <%= u.email %> |
+    <% if u.is_a_follower?(current_user).!() %>
+      <%= link_to "Suivre", starts_following_user_path(u.id), class: 'follow', remote: true, method: 'put' %>
+    <% else %>
+      <%= link_to "Ne plus suivre", stop_following_user_path(u.id), class: 'unfollow', remote: true, method: 'put' %>
+    <% end %>
+  <% end %>
+  </li>
+</ul>

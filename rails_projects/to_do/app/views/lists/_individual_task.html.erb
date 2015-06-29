@@ -1,0 +1,10 @@
+<li>
+  <%= object.description %> |
+  <%= link_to "Edit", edit_list_task_path(@list, object) %> |
+  <%= link_to "Delete", list_task_path(@list, object), :data => { :confirm => "you sure?", :method => "delete"} %> |
+  <% if done %>
+    <%= link_to "Mark as not done", done_false_list_task_path(@list, object), :data => { :method =>"patch" } %>
+  <% else %>
+    <%= link_to "Mark as done", done_true_list_task_path(@list, object), :data => { :method =>"patch"}%>
+  <% end %>
+</li>

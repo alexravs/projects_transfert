@@ -1,0 +1,37 @@
+<div class="jumbotron col-md-6 clear-fix">
+  <%= image_tag @establishment.logo.url(:medium), :class => "img-responsive" %>
+
+  <h3><%= @establishment.name %></h3>
+  Note moyenne: <%= @establishment.score %>
+</div>
+
+
+
+<% if @establishment.reviews.any? %>
+  <h4>Reviews: </h4>
+  <ul>
+    <% @establishment.reviews.each do |review| %>
+      <li>
+        <%= link_to review.user.username, user_path(review.user) %> | 
+        Rating: <%= review.rate %>/10
+        <p><%= review.text %></p>
+      </li>
+    <% end %>
+  </ul>
+<!-- Create in jquery a rolldown form allowing to insert a review when user visited the restaurant -->
+
+<% end %>
+<%= link_to "I visited this place ", visited_this_place_establishment_path(@establishment), :data => { :method => "put"} %>
+<h4>Already been there ?</h4>
+<%= form_for [@establishment,@review] do |f| %>
+  <div class="form-group">
+    <%= f.label :text %>
+    <%= f.text_area :text, class: 'form-control', :html => {:row => "8"} %>
+  </div>
+  <br>
+  <div class="form-group">
+    <%= f.label :rate %>
+    <%= f.number_field :rate, class: 'form-control', max: "10" %>
+  </div>
+  <button type="submit" class="btn btn-default">Submit</button>  
+<% end %>

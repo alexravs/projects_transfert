@@ -1,0 +1,9 @@
+<h1>Profile</h1>
+
+<h3>Email: <%= current_user.email %></h3>
+<%= link_to "New tweet", new_user_tweet_path(current_user.id), id: "new_tweet_button", remote: true %> 
+<% current_user.tweets.each do |tweet| %>
+  <div class="tweet">
+    <p><%= tweet.message %></p>
+  </div>
+<% end %>

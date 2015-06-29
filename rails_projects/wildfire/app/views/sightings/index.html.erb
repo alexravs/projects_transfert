@@ -1,0 +1,35 @@
+<% if Sighting.all.any?() %>
+  <ul>
+    <% Sighting.all.each() do |sighting| %>
+      <li>
+        <%= sighting.species.name %> 
+        longitude: <%= sighting.longetitude %> |
+        latitude: <%= sighting.latitude %> |
+        Last seen the: <%= sighting.date %> |
+        Region: <%= sighting.region.name %>
+    
+      </li>
+    <% end %>
+  </ul>
+<% else %>
+  <p>No sightings yet ...</p>
+<% end %>
+
+<%= link_to 'add a species', new_species_path %>
+<%= link_to 'add a region', new_region_path %>
+
+<h3>Add sightings of some species you witnessed: </h3>  
+
+<%= render 'form' %>
+
+<%= form_tag("/sightings/search_sightings_trough_dates", method: "get") do %>
+  <%= label_tag(:first_date, "From:") %>
+  <%= date_field_tag(:first_date) %>
+  <%= label_tag(:second_date, "to:") %>
+  <%= date_field_tag(:second_date) %>
+  <br>
+  <%= label_tag(:region, "Region:") %>
+  <%= collection_select(:sighting, :region_id, Region.all, :id, :name, {include_blank: true}) %>
+  <%= submit_tag("Search") %>
+<% end %>
+

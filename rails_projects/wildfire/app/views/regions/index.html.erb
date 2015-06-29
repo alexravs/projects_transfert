@@ -1,0 +1,7 @@
+<%= form_for @region do |f| %>
+  
+  
+  <%= collection_select(:region, :id, Region.all, :id, :name) %>
+  
+  <p><%= f.submit %></p>
+<% end %>

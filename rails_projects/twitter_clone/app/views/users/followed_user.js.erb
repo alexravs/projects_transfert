@@ -1,0 +1,3 @@
+
+$("#<%= @user_to_be_followed.id %>").find("a").after("<%= link_to 'Ne plus suivre', stop_following_user_path(@user_to_be_followed), class: 'unfollow', remote: true, method: 'put' %>");
+$("#<%= @user_to_be_followed.id %>").find("a.follow").remove();

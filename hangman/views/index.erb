@@ -1,0 +1,37 @@
+<h1>Hangman</h1>
+
+<h3>insert a letter right below:</h3>
+
+<form action="/insertion" method="post">
+  <input id='game_id' name='game_id' type='hidden' value='<%= @test.id() %>'>
+
+  <label for='name'>Your bet (insert a letter):</label>
+  <input id='letter' name='letter' type='text'>
+  <button type="submit">Is the letter comprised in the word?</button>
+</form>
+
+<pre><code class="prettyprint prettyprinted"><span class="pln">    ________________
+   </span><span class="pun"><%= @body_parts[:part_1] %></span><span class="pln"><%= @body_parts[:part_2] %>               </span><span class="pun">|</span><span class="pln">
+   <%= @body_parts[:part_3] %><%= @body_parts[:part_4] %>               </span><span class="pun">|</span><span class="pln">
+    </span><span class="pun"><%= @body_parts[:part_5] %></span><span class="pln">               </span><span class="pun">|</span><span class="pln">
+ </span><span class="pun"><%= @body_parts[:part_6] %><%= @body_parts[:part_7] %></span><span class="pln">            </span><span class="pun">|</span><span class="pln">
+    </span><span class="pun"><%= @body_parts[:part_8] %></span><span class="pln">               </span><span class="pun">|</span><span class="pln">
+    </span><span class="pun"><%= @body_parts[:part_9] %></span><span class="pln">               </span><span class="pun">|</span><span class="pln">
+   </span><span class="str"><%= @body_parts[:part_10] %><%= @body_parts[:part_12] %>               |
+  <%= @body_parts[:part_11] %></span><span class="pln">  <%= @body_parts[:part_13] %>              </span><span class="pun">|</span><span class="pln">
+              ______</span><span class="pun">|</span><span class="pln">_____
+
+
+__ __ __ __ __ __
+</span></code></pre>
+
+<ul>
+  <%= @word_to_find %>
+  <% @word_revelation.each() do |letter| %>
+    
+    <%= letter %>
+  <% end %>
+</ul>
+<ul>
+  <li>chance left: <%= @chances_left %></li>
+</ul>

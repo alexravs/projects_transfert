@@ -1,0 +1,7 @@
+development:
+  adapter: postgresql
+  database: company_management
+
+test:
+  adapter: postgresql
+  database: company_management_test

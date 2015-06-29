@@ -1,0 +1,11 @@
+<ul>
+  <% @sightings.each do |sighting| %>
+    <li>
+      <%= sighting.species.name %> ->
+      longitude: <%= sighting.longetitude %> |
+      latitude: <%= sighting.latitude %> |
+      Last seen the: <%= sighting.date %> |
+      Region: <%= sighting.region.name %>
+    </li>
+  <% end %>
+</ul>
