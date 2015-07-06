@@ -5,6 +5,6 @@
 #     t.decimal "pri_vol_conditionnement", precision: 3, scale: 2
 
 class Price < ActiveRecord::Base
-  
+  has_many :identifiant_combis
 end
   

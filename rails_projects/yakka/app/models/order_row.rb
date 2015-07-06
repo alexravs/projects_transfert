@@ -3,4 +3,7 @@
 #     t.integer "row_quantity",             limit: 2, null: false
 
 class OrderRow < ActiveRecord::Base
+  belongs_to :order
+  belongs_to :identifiant_combi
+  
 end

@@ -2,5 +2,5 @@
 #     t.decimal "pays_port",            precision: 5, scale: 2
 
 class Country < ActiveRecord::Base
-  
+  has_many :clients
 end

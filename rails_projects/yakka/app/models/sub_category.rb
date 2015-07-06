@@ -2,7 +2,7 @@
 #     t.integer "sscat_fk_categories",            null: false
 #     t.integer "sscat_stat",
 
-class Category < ActiveRecord::Base
+class SubCategory < ActiveRecord::Base
   belongs_to :category
   has_many :products
 end

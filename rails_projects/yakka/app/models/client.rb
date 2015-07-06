@@ -12,5 +12,6 @@
 #     t.string "cli_email",        limit: 40, null: false
 
 class Client < ActiveRecord::Base
+  belongs_to :country
   
 end
