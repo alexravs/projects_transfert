@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150706124316) do
+ActiveRecord::Schema.define(version: 20150706132459) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -52,7 +52,7 @@ ActiveRecord::Schema.define(version: 20150706124316) do
     t.decimal "pays_port",            precision: 5, scale: 2
   end
 
-  create_table "identifiant_combi", primary_key: "idc_id", force: :cascade do |t|
+  create_table "identifiant_combis", primary_key: "idc_id", force: :cascade do |t|
     t.integer "price_id", null: false
   end
 
@@ -105,9 +105,9 @@ ActiveRecord::Schema.define(version: 20150706124316) do
   add_foreign_key "characteristics", "properties", primary_key: "prop_id", name: "characteristics_car_fk_properties_fkey"
   add_foreign_key "clients", "countries", column: "pays_id", primary_key: "pays_abreviation", name: "clients_cli_fk_pays_fkey"
   add_foreign_key "combinaisons", "characteristics", column: "identifiant_combi_id", primary_key: "car_id", name: "combinaisons_com_fk_characteristics_fkey"
-  add_foreign_key "combinaisons", "identifiant_combi", column: "com_fk_identifiant_combi", primary_key: "idc_id", name: "combinaisons_com_fk_identifiant_combi_fkey"
-  add_foreign_key "identifiant_combi", "prices", primary_key: "pri_id", name: "identifiant_combi_idc_fk_prices_fkey"
-  add_foreign_key "order_rows", "identifiant_combi", primary_key: "idc_id", name: "order_rows_row_fk_identifiant_combi_fkey"
+  add_foreign_key "combinaisons", "identifiant_combis", column: "com_fk_identifiant_combi", primary_key: "idc_id", name: "combinaisons_com_fk_identifiant_combi_fkey"
+  add_foreign_key "identifiant_combis", "prices", primary_key: "pri_id", name: "identifiant_combi_idc_fk_prices_fkey"
+  add_foreign_key "order_rows", "identifiant_combis", primary_key: "idc_id", name: "order_rows_row_fk_identifiant_combi_fkey"
   add_foreign_key "order_rows", "orders", primary_key: "com_id", name: "order_rows_row_fk_orders_fkey"
   add_foreign_key "orders", "clients", primary_key: "cli_id", name: "orders_com_fk_clients_fkey"
   add_foreign_key "products", "sub_categories", primary_key: "sscat_id", name: "products_prod_fk_sub_categories_fkey"
