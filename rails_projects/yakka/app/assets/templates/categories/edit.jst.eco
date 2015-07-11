@@ -1,0 +1,8 @@
+HELLO FROM CATEGORY
+<form>
+  <input type=text class="category-name" value="<%= @category.get("cat_nom") %>"
+  <br />
+  <input type=number class="category-stat" value="<%= @category.get("cat_stat") %>"
+  <br />
+  <input type="submit">
+</form>

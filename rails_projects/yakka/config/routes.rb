@@ -12,4 +12,6 @@ Rails.application.routes.draw do
   resources :clients do 
     resources :commandes
   end
+  
+  get "*any" => 'application#index'
 end

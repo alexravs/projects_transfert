@@ -13,11 +13,13 @@
 //= require jquery
 //= require jquery_ujs
 //= require underscore
+//= require lodash
 //= require backbone
-//= require yakka
+
 //= require_tree ../templates
 //= require_tree ./models
 //= require_tree ./collections
 //= require_tree ./views
 //= require_tree ./routers
+//= require yakka
 //= require_tree .

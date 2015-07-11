@@ -1,0 +1,10 @@
+HELLO FROM INDEX JST  
+
+<ul>
+
+<% for category in @categories.models: %>
+
+
+  <li><a class="menu" data-id="<%= category.get("cat_id") %>" href="<%= category.url() %>"><%= category.get('cat_nom') %></a></li>
+<% end %>
+</ul>
