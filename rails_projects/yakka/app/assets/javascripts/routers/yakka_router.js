@@ -7,16 +7,17 @@ var YakkaRouter = Backbone.Router.extend({
 		},
   
     index: function() {
-      alert(" ça marche mon gars 2X");
-   //   view = new CategoryView({collection: this.AllCategories,el:$("#container")});
+      console.log(" on est sur l'index");
+      console.log(this.AllCategories);
+      view = new CategoryView({collection: this.AllCategories,el:$("#container")});
       return false;
     },
     
     showCategory: function (id) {
-			alert(" category avec l'id " + id);
+			console.log(" category avec l'id " + id);
       category = Yakka.AllCategories.get(id);
       view = new EditCategory({model: category,el:$("#container")});
-      //return false;
+      return false;
 		}
 
 		
